@@ -6,23 +6,27 @@ from model.graph_times_net import GraphTimesNet  # 实际是 GraphTimesNet 封�
 from supervisor import GraphTimesSupervisor
 from lib.graph_utils import load_graph_data
 from lib.data_utils import load_dataset
+from save_predictions import save_predictions_to_csv, plot_training_loss
 
 
 def run(
     device="cuda",
     # data_dir="data/ch",
-    data_dir="data/la",
+    # data_dir="data/la",
+    data_dir="data/sh",
     # adj_pkl="data/adj_mx_chicago.pkl",
-    adj_pkl="data/adj_mx_la.pkl",
+    # adj_pkl="data/adj_mx_la.pkl",
+    adj_pkl="data/adj_mx_shanghai07.pkl",
     output_dir="result/GraphTimesNet",
     input_dim=8,
     hidden_dim=64,
-    seq_len=8,
+    # seq_len=8,
+    seq_len=9,
     horizon=1,
     batch_size=8,
     max_epochs=200,
     patience=20,
-    lr=0.002,
+    lr=0.001,
     use_inception=True,
 ):
     # Step 1: 设备设置
@@ -31,6 +35,8 @@ def run(
     # Step 2: 加载图结构
     _, _, adj_mx = load_graph_data(adj_pkl)
     supports = [torch.tensor(adj_mx, dtype=torch.float32, device=device)]
+
+    num_nodes = supports[0].shape[0]
     print(f"support[0] shape: {supports[0].shape}")  # (77,77)
 
     # Step 3: 加载数据集
@@ -42,6 +48,11 @@ def run(
     test_loader = data["test_loader"]
     scaler = data["scaler"]
 
+    # for x, y in train_loader:
+        # print("x shape:", x.shape)
+        # print("y shape:", y.shape)
+        # break
+
     # Step 4: 初始化模型
     model = GraphTimesNet(
         supports=supports,
@@ -51,6 +62,9 @@ def run(
         horizon=horizon,
         use_inception=use_inception,
     )
+    # print("num_nodes:", num_nodes)
+    # print("input_dim:", input_dim)
+    # print("hidden_dim:", hidden_dim)
 
     # Step 5: 初始化训练器
     supervisor = GraphTimesSupervisor(
@@ -70,7 +84,8 @@ def run(
 
     # Step 6: 开始训练
     supervisor.train()
-
+    save_predictions_to_csv(output_dir)
+    plot_training_loss(supervisor, os.path.join(output_dir, "output"))
 
 if __name__ == "__main__":
     run()
