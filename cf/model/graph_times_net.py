@@ -1,122 +1,44 @@
-# import torch
-# import torch.nn as nn
-# from model.dcgru_torch import DCGRU
-# from model.times_block import TimesBlock
-# from model.inception_block import Inception_Block_V1
-
-# class GraphTimesNet(nn.Module):
-#     def __init__(
-#         self, supports, input_dim, hidden_dim, seq_len, horizon, use_inception=True
-#     ):
-#         super(GraphTimesNet, self).__init__()
-#         self.seq_len = seq_len
-#         self.horizon = horizon
-#         self.num_nodes = supports[0].shape[0]
-
-#         self.dcgru = DCGRU(
-#             num_units=hidden_dim,
-#             adj_mx=supports,
-#             max_diffusion_step=2,
-#             num_nodes=self.num_nodes,
-#             input_dim=input_dim,
-#             output_dim=hidden_dim, 
-#             num_layers=1,
-#             filter_type="laplacian"
-#         )
-
-#         self.use_inception = use_inception
-#         if use_inception:
-#             self.inception = Inception_Block_V1(
-#                 in_channels=hidden_dim, out_channels=hidden_dim, num_kernels=6
-#             )
-        
-#         self.times_block = TimesBlock(hidden_dim, seq_len)
-#         self.output_proj = nn.Linear(hidden_dim, 8)
-
-#     def forward(self, x):  # x: [B, T, N, D]
-#         batch_size = x.size(0)
-        
-#         # Reshape for DCGRU: [B, T, N*D] -> [T, B, N*D]
-#         x = x.reshape(batch_size, self.seq_len, -1).permute(1, 0, 2)
-        
-#         # Process sequence with DCGRU
-#         outputs, _ = self.dcgru(x)  # outputs: [T, B, N*hidden_dim]
-        
-#         # Reshape back: [T, B, N*hidden_dim] -> [B, T, N, hidden_dim]
-#         x = outputs.permute(1, 0, 2).reshape(batch_size, self.seq_len, self.num_nodes, -1)
-
-#         if self.use_inception:
-#             x = x.permute(0, 3, 1, 2)  # [B, D, T, N]
-#             x = self.inception(x)
-#             x = x.permute(0, 2, 3, 1)  # [B, T, N, D]
-
-#         x = self.times_block(x)
-#         x = self.output_proj(x)
-#         return x[:, -self.horizon:, :, :]  # [B, horizon, N, 8]
-    
-
-
 import torch
 import torch.nn as nn
-from model.dcgru_torch import DCGRU
+from model.graph_conv import GraphConv
 from model.times_block import TimesBlock
-from model.inception_block import Inception_Block_V1
+from model.inception_block import Inception_Block_V1, Inception_Block_V2
+
 
 class GraphTimesNet(nn.Module):
     def __init__(
         self, supports, input_dim, hidden_dim, seq_len, horizon, use_inception=True
     ):
         super(GraphTimesNet, self).__init__()
-        self.seq_len = seq_len
-        self.horizon = horizon
-        self.num_nodes = supports[0].shape[0]
-        self.hidden_dim = hidden_dim
-
-        self.dcgru = DCGRU(
-            num_units=hidden_dim,
-            adj_mx=supports,
-            max_diffusion_step=2,
-            num_nodes=self.num_nodes,
-            input_dim=input_dim,
-            output_dim=hidden_dim, 
-            num_layers=1,
-            filter_type="laplacian"
-        )
-
+        # 图卷积：处理邻接节点的空间关系
+        self.graph_conv = GraphConv(supports, input_dim, hidden_dim)
         self.use_inception = use_inception
         if use_inception:
-            self.inception = Inception_Block_V1(
-                in_channels=input_dim, out_channels=hidden_dim, num_kernels=6
-            )
-        
-        # self.times_block = TimesBlock(hidden_dim, seq_len)
+            # 先用V1，再用V2
+            self.inception1 = Inception_Block_V1(hidden_dim, hidden_dim, num_kernels=6)
+            self.inception2 = Inception_Block_V2(hidden_dim, hidden_dim, num_kernels=6)
+            self.inception3 = Inception_Block_V1(hidden_dim, hidden_dim, num_kernels=6)
 
-        self.times_block = TimesBlock(
-            d_model=hidden_dim, 
-            seq_len=seq_len, 
-            num_nodes=self.num_nodes, 
-            feature_dim=hidden_dim
-        )
+        # 频域建模模块：提取每个节点在时间维度的周期性
+        self.times_block = TimesBlock(hidden_dim, seq_len)
+        # 线性层：映射成预测目标维度
         self.output_proj = nn.Linear(hidden_dim, 8)
+        self.horizon = horizon
 
+    # 前向传播逻辑
     def forward(self, x):  # x: [B, T, N, D]
-        batch_size = x.size(0)
-        
-        # Reshape for DCGRU: [B, T, N*D] -> [T, B, N*D]
-        x = x.reshape(batch_size, self.seq_len, -1).permute(1, 0, 2)
-        
-        # Process sequence with DCGRU
-        outputs, _ = self.dcgru(x)  # outputs: [T, B, N*hidden_dim]
-        
-        # Reshape back: [T, B, N*hidden_dim] -> [B, T, N, hidden_dim]
-        x = outputs.permute(1, 0, 2).reshape(batch_size, self.seq_len, self.num_nodes, -1)
-
+        x = self.graph_conv(x)  # [B, T, N, hidden]
         if self.use_inception:
             x = x.permute(0, 3, 1, 2)  # [B, D, T, N]
-            x = self.inception(x)
-            x = x.permute(0, 2, 3, 1)  # [B, T, N, D]
+            x = self.inception1(x)      # V1
+            x = self.inception2(x)      # V2
+            x = self.inception3(x)      # V2
+            x1 = self.inception1(x)  # Inception 输出: [B, D, T, N]
+            x2 = self.inception2(x1)  # Inception 输出: [B, D, T, N]
+            x3 = self.inception3(x2)  # Inception 输出: [B, D, T, N]
+            x = x + x3
 
-
-        x = self.times_block(x)
-        x = self.output_proj(x)
-        return x[:, -self.horizon:, :, :]  # [B, horizon, N, 8]
+            x = x.permute(0, 2, 3, 1)  # → [B, T, N, D]
+        x = self.times_block(x)  # [B, T, N, hidden]
+        x = self.output_proj(x)  # [B, T, N, out_dim]
+        return x[:, -self.horizon :, :, :]  # 取最后 horizon 步预测
