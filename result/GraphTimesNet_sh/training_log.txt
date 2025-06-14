@@ -1,0 +1,12 @@
+===== Training Logs =====
+Training Started: 2025-06-12 00:13:56
+Max epoch: 200, Early Stopping patience: 20
+[Epoch 001] Train Loss: 0.0341 | Val Loss: 0.0171 | Time: 6.3s
+New Best Val Loss: 0.0171, save model
+[Epoch 002] Train Loss: 0.0177 | Val Loss: 0.0171 | Time: 5.7s
+New Best Val Loss: 0.0171, save model
+[Epoch 003] Train Loss: 0.0173 | Val Loss: 0.0172 | Time: 5.7s
+[Epoch 004] Train Loss: 0.0171 | Val Loss: 0.0167 | Time: 5.7s
+New Best Val Loss: 0.0167, save model
+[Epoch 005] Train Loss: 0.0171 | Val Loss: 0.0163 | Time: 5.7s
+New Best Val Loss: 0.0163, save model
