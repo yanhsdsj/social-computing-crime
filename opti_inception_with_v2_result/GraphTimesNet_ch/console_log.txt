@@ -1,0 +1,89 @@
+Training Started: 2025-06-12 12:56:02
+Max epoch: 200, Early Stopping patience: 30
+[Epoch 001] Train Loss: 0.6333 | Val Loss: 0.6137 | Time: 1.4s
+New Best Val Loss: 0.6137, save model
+[Epoch 002] Train Loss: 0.6026 | Val Loss: 0.5886 | Time: 0.6s
+New Best Val Loss: 0.5886, save model
+[Epoch 003] Train Loss: 0.5899 | Val Loss: 0.5829 | Time: 0.5s
+New Best Val Loss: 0.5829, save model
+[Epoch 004] Train Loss: 0.5832 | Val Loss: 0.5740 | Time: 0.4s
+New Best Val Loss: 0.5740, save model
+[Epoch 005] Train Loss: 0.5739 | Val Loss: 0.5619 | Time: 0.4s
+New Best Val Loss: 0.5619, save model
+[Epoch 006] Train Loss: 0.5614 | Val Loss: 0.5482 | Time: 0.4s
+New Best Val Loss: 0.5482, save model
+[Epoch 007] Train Loss: 0.5507 | Val Loss: 0.5378 | Time: 0.5s
+New Best Val Loss: 0.5378, save model
+[Epoch 008] Train Loss: 0.5440 | Val Loss: 0.5349 | Time: 0.4s
+New Best Val Loss: 0.5349, save model
+[Epoch 009] Train Loss: 0.5388 | Val Loss: 0.5298 | Time: 0.6s
+New Best Val Loss: 0.5298, save model
+[Epoch 010] Train Loss: 0.5336 | Val Loss: 0.5221 | Time: 0.6s
+New Best Val Loss: 0.5221, save model
+[Epoch 011] Train Loss: 0.5300 | Val Loss: 0.5208 | Time: 0.5s
+New Best Val Loss: 0.5208, save model
+[Epoch 012] Train Loss: 0.5289 | Val Loss: 0.5179 | Time: 0.5s
+New Best Val Loss: 0.5179, save model
+[Epoch 013] Train Loss: 0.5252 | Val Loss: 0.5183 | Time: 0.4s
+[Epoch 014] Train Loss: 0.5231 | Val Loss: 0.5154 | Time: 0.5s
+New Best Val Loss: 0.5154, save model
+[Epoch 015] Train Loss: 0.5219 | Val Loss: 0.5140 | Time: 0.7s
+New Best Val Loss: 0.5140, save model
+[Epoch 016] Train Loss: 0.5216 | Val Loss: 0.5138 | Time: 0.7s
+New Best Val Loss: 0.5138, save model
+[Epoch 017] Train Loss: 0.5189 | Val Loss: 0.5128 | Time: 0.6s
+New Best Val Loss: 0.5128, save model
+[Epoch 018] Train Loss: 0.5181 | Val Loss: 0.5123 | Time: 0.6s
+New Best Val Loss: 0.5123, save model
+[Epoch 019] Train Loss: 0.5178 | Val Loss: 0.5122 | Time: 0.7s
+New Best Val Loss: 0.5122, save model
+[Epoch 020] Train Loss: 0.5184 | Val Loss: 0.5147 | Time: 0.5s
+[Epoch 021] Train Loss: 0.5170 | Val Loss: 0.5085 | Time: 0.6s
+New Best Val Loss: 0.5085, save model
+[Epoch 022] Train Loss: 0.5161 | Val Loss: 0.5093 | Time: 0.7s
+[Epoch 023] Train Loss: 0.5152 | Val Loss: 0.5092 | Time: 0.6s
+[Epoch 024] Train Loss: 0.5149 | Val Loss: 0.5096 | Time: 0.7s
+[Epoch 025] Train Loss: 0.5144 | Val Loss: 0.5120 | Time: 0.6s
+[Epoch 026] Train Loss: 0.5141 | Val Loss: 0.5103 | Time: 0.6s
+[Epoch 027] Train Loss: 0.5141 | Val Loss: 0.5098 | Time: 0.5s
+[Epoch 028] Train Loss: 0.5137 | Val Loss: 0.5091 | Time: 0.7s
+[Epoch 029] Train Loss: 0.5129 | Val Loss: 0.5077 | Time: 0.7s
+New Best Val Loss: 0.5077, save model
+[Epoch 030] Train Loss: 0.5124 | Val Loss: 0.5089 | Time: 0.7s
+[Epoch 031] Train Loss: 0.5109 | Val Loss: 0.5062 | Time: 0.6s
+New Best Val Loss: 0.5062, save model
+[Epoch 032] Train Loss: 0.5107 | Val Loss: 0.5078 | Time: 0.6s
+[Epoch 033] Train Loss: 0.5113 | Val Loss: 0.5063 | Time: 0.6s
+[Epoch 034] Train Loss: 0.5112 | Val Loss: 0.5080 | Time: 0.6s
+[Epoch 035] Train Loss: 0.5100 | Val Loss: 0.5081 | Time: 0.6s
+[Epoch 036] Train Loss: 0.5097 | Val Loss: 0.5079 | Time: 0.6s
+[Epoch 037] Train Loss: 0.5107 | Val Loss: 0.5079 | Time: 0.6s
+[Epoch 038] Train Loss: 0.5092 | Val Loss: 0.5091 | Time: 0.6s
+[Epoch 039] Train Loss: 0.5084 | Val Loss: 0.5074 | Time: 0.6s
+[Epoch 040] Train Loss: 0.5081 | Val Loss: 0.5084 | Time: 0.7s
+[Epoch 041] Train Loss: 0.5080 | Val Loss: 0.5093 | Time: 0.7s
+[Epoch 042] Train Loss: 0.5084 | Val Loss: 0.5105 | Time: 0.7s
+[Epoch 043] Train Loss: 0.5081 | Val Loss: 0.5081 | Time: 0.7s
+[Epoch 044] Train Loss: 0.5082 | Val Loss: 0.5082 | Time: 0.7s
+[Epoch 045] Train Loss: 0.5076 | Val Loss: 0.5086 | Time: 0.7s
+[Epoch 046] Train Loss: 0.5081 | Val Loss: 0.5085 | Time: 0.6s
+[Epoch 047] Train Loss: 0.5078 | Val Loss: 0.5077 | Time: 0.7s
+[Epoch 048] Train Loss: 0.5077 | Val Loss: 0.5084 | Time: 0.7s
+[Epoch 049] Train Loss: 0.5066 | Val Loss: 0.5070 | Time: 0.7s
+[Epoch 050] Train Loss: 0.5053 | Val Loss: 0.5077 | Time: 0.6s
+[Epoch 051] Train Loss: 0.5057 | Val Loss: 0.5096 | Time: 0.7s
+[Epoch 052] Train Loss: 0.5051 | Val Loss: 0.5069 | Time: 0.7s
+[Epoch 053] Train Loss: 0.5064 | Val Loss: 0.5096 | Time: 0.7s
+[Epoch 054] Train Loss: 0.5059 | Val Loss: 0.5111 | Time: 0.8s
+[Epoch 055] Train Loss: 0.5037 | Val Loss: 0.5097 | Time: 0.7s
+[Epoch 056] Train Loss: 0.5047 | Val Loss: 0.5098 | Time: 0.8s
+[Epoch 057] Train Loss: 0.5031 | Val Loss: 0.5097 | Time: 0.7s
+[Epoch 058] Train Loss: 0.5034 | Val Loss: 0.5118 | Time: 0.7s
+[Epoch 059] Train Loss: 0.5039 | Val Loss: 0.5108 | Time: 0.8s
+[Epoch 060] Train Loss: 0.5029 | Val Loss: 0.5099 | Time: 0.7s
+[Epoch 061] Train Loss: 0.5025 | Val Loss: 0.5084 | Time: 0.7s
+Early stopping at epoch 61, Best Val loss: 0.5062
+training ended at: 2025-06-12 12:56:41
+Final Best Val Loss: 0.5062
+Epoch times and total time saved at: opti_inception_with_v2_result\GraphTimesNet_ch\ch_time.csv
+[Test] Macro F1: 0.7382 | Micro F1: 0.7429 | Precision: 0.7439 | Recall: 0.7368

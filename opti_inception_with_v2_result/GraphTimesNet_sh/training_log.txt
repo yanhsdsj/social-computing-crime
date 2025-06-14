@@ -1,0 +1,70 @@
+===== Training Logs =====
+Training Started: 2025-06-12 12:57:02
+Max epoch: 200, Early Stopping patience: 30
+[Epoch 001] Train Loss: 0.0224 | Val Loss: 0.0169 | Time: 48.8s
+New Best Val Loss: 0.0169, save model
+[Epoch 002] Train Loss: 0.0179 | Val Loss: 0.0167 | Time: 25.6s
+New Best Val Loss: 0.0167, save model
+[Epoch 003] Train Loss: 0.0177 | Val Loss: 0.0190 | Time: 25.5s
+[Epoch 004] Train Loss: 0.0175 | Val Loss: 0.0205 | Time: 26.3s
+[Epoch 005] Train Loss: 0.0173 | Val Loss: 0.0206 | Time: 29.0s
+[Epoch 006] Train Loss: 0.0172 | Val Loss: 0.0166 | Time: 33.3s
+New Best Val Loss: 0.0166, save model
+[Epoch 007] Train Loss: 0.0171 | Val Loss: 0.0173 | Time: 25.8s
+[Epoch 008] Train Loss: 0.0170 | Val Loss: 0.0164 | Time: 25.8s
+New Best Val Loss: 0.0164, save model
+[Epoch 009] Train Loss: 0.0169 | Val Loss: 0.0189 | Time: 25.4s
+[Epoch 010] Train Loss: 0.0169 | Val Loss: 0.0178 | Time: 26.0s
+[Epoch 011] Train Loss: 0.0168 | Val Loss: 0.0176 | Time: 25.4s
+[Epoch 012] Train Loss: 0.0168 | Val Loss: 0.0170 | Time: 27.3s
+[Epoch 013] Train Loss: 0.0169 | Val Loss: 0.0165 | Time: 29.3s
+[Epoch 014] Train Loss: 0.0167 | Val Loss: 0.0161 | Time: 25.4s
+New Best Val Loss: 0.0161, save model
+[Epoch 015] Train Loss: 0.0167 | Val Loss: 0.0161 | Time: 25.8s
+New Best Val Loss: 0.0161, save model
+[Epoch 016] Train Loss: 0.0167 | Val Loss: 0.0168 | Time: 25.8s
+[Epoch 017] Train Loss: 0.0167 | Val Loss: 0.0161 | Time: 25.3s
+[Epoch 018] Train Loss: 0.0167 | Val Loss: 0.0162 | Time: 37.3s
+[Epoch 019] Train Loss: 0.0167 | Val Loss: 0.0163 | Time: 50.9s
+[Epoch 020] Train Loss: 0.0166 | Val Loss: 0.0163 | Time: 49.9s
+[Epoch 021] Train Loss: 0.0166 | Val Loss: 0.0160 | Time: 48.2s
+New Best Val Loss: 0.0160, save model
+[Epoch 022] Train Loss: 0.0166 | Val Loss: 0.0160 | Time: 30.3s
+New Best Val Loss: 0.0160, save model
+[Epoch 023] Train Loss: 0.0166 | Val Loss: 0.0159 | Time: 30.2s
+New Best Val Loss: 0.0159, save model
+[Epoch 024] Train Loss: 0.0166 | Val Loss: 0.0163 | Time: 26.7s
+[Epoch 025] Train Loss: 0.0165 | Val Loss: 0.0160 | Time: 25.8s
+[Epoch 026] Train Loss: 0.0165 | Val Loss: 0.0161 | Time: 25.3s
+[Epoch 027] Train Loss: 0.0165 | Val Loss: 0.0160 | Time: 27.1s
+[Epoch 028] Train Loss: 0.0165 | Val Loss: 0.0163 | Time: 27.1s
+[Epoch 029] Train Loss: 0.0164 | Val Loss: 0.0161 | Time: 34.2s
+[Epoch 030] Train Loss: 0.0165 | Val Loss: 0.0160 | Time: 30.6s
+[Epoch 031] Train Loss: 0.0164 | Val Loss: 0.0161 | Time: 25.2s
+[Epoch 032] Train Loss: 0.0164 | Val Loss: 0.0160 | Time: 24.6s
+[Epoch 033] Train Loss: 0.0164 | Val Loss: 0.0160 | Time: 24.0s
+[Epoch 034] Train Loss: 0.0164 | Val Loss: 0.0161 | Time: 25.9s
+[Epoch 035] Train Loss: 0.0164 | Val Loss: 0.0162 | Time: 29.4s
+[Epoch 036] Train Loss: 0.0163 | Val Loss: 0.0163 | Time: 33.2s
+[Epoch 037] Train Loss: 0.0163 | Val Loss: 0.0161 | Time: 36.3s
+[Epoch 038] Train Loss: 0.0163 | Val Loss: 0.0161 | Time: 45.2s
+[Epoch 039] Train Loss: 0.0164 | Val Loss: 0.0160 | Time: 28.7s
+[Epoch 040] Train Loss: 0.0163 | Val Loss: 0.0160 | Time: 28.8s
+[Epoch 041] Train Loss: 0.0162 | Val Loss: 0.0162 | Time: 30.9s
+[Epoch 042] Train Loss: 0.0163 | Val Loss: 0.0162 | Time: 29.3s
+[Epoch 043] Train Loss: 0.0162 | Val Loss: 0.0162 | Time: 28.9s
+[Epoch 044] Train Loss: 0.0163 | Val Loss: 0.0160 | Time: 25.4s
+[Epoch 045] Train Loss: 0.0162 | Val Loss: 0.0162 | Time: 34.9s
+[Epoch 046] Train Loss: 0.0162 | Val Loss: 0.0161 | Time: 50.5s
+[Epoch 047] Train Loss: 0.0162 | Val Loss: 0.0161 | Time: 52.8s
+[Epoch 048] Train Loss: 0.0161 | Val Loss: 0.0165 | Time: 41.8s
+[Epoch 049] Train Loss: 0.0162 | Val Loss: 0.0161 | Time: 49.3s
+[Epoch 050] Train Loss: 0.0161 | Val Loss: 0.0160 | Time: 38.2s
+[Epoch 051] Train Loss: 0.0161 | Val Loss: 0.0161 | Time: 40.3s
+[Epoch 052] Train Loss: 0.0161 | Val Loss: 0.0162 | Time: 38.2s
+[Epoch 053] Train Loss: 0.0160 | Val Loss: 0.0163 | Time: 25.5s
+Early stopping at epoch 53, Best Val loss: 0.0159
+training ended at: 2025-06-12 13:25:29
+Final Best Val Loss: 0.0159
+Epoch times and total time saved at: opti_inception_with_v2_result\GraphTimesNet_sh\sh_time.csv
+[Test] Macro F1: 0.7641 | Micro F1: 0.9941 | Precision: 0.8023 | Recall: 0.7345
